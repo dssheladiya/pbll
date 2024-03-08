@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pbl/Model/Constant/color_helper.dart';
 import 'package:pbl/Model/Constant/text_style.dart';
-import 'package:pbl/View/HomeScreen/form.dart';
+import 'package:pbl/View/HomeScreen/intro.dart';
 
 class BusinessBar extends StatefulWidget {
   const BusinessBar({super.key});
@@ -17,42 +17,43 @@ class _BusinessBarState extends State<BusinessBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorHelper.kWhite,
+
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.h),
         child: Column(
           children: [
             SizedBox(height: 20.h),
-            buildGestureDetector("Abaut Join", () {
-              Get.to(FormScreen());
-            }),
-            SizedBox(height: 20.h),
-            buildGestureDetector("Club Join", () {
-              Get.to(FormScreen());
-            }),
-            SizedBox(height: 20.h),
-            buildGestureDetector("Groups Join", () {
-              Get.to(FormScreen());
-            }),
-            SizedBox(height: 20.h),
-            buildGestureDetector("Business Join", () {
-              Get.to(FormScreen());
-            }),
-            SizedBox(height: 20.h),
-            buildGestureDetector("Free Join", () {
-              Get.to(FormScreen());
-            }),
-            SizedBox(height: 20.h),
-            buildGestureDetector("Business Form", () {
-              Get.to(FormScreen());
-            }),
+            // buildGestureDetector("About Join", () {
+            //   Get.to(const FormScreen());
+            // }),
+            // SizedBox(height: 20.h),
+            // buildGestureDetector("Club Join", () {
+            //   Get.to(const FormScreen());
+            // }),
+            // SizedBox(height: 20.h),
+            // buildGestureDetector("Groups Join", () {
+            //   Get.to(const FormScreen());
+            // }),
+            // SizedBox(height: 20.h),
+            // buildGestureDetector("Business Join", () {
+            //   Get.to(const FormScreen());
+            // }),
+            // SizedBox(height: 20.h),
+            // buildGestureDetector("Free Join", () {
+            //   Get.to(const FormScreen());
+            // }),
+            // SizedBox(height: 20.h),
+            // buildGestureDetector("Business Form", () {
+            //   Get.to(const FormScreen());
+            // }),
           ],
         ),
       ),
     );
   }
 
-  GestureDetector iconGestureDetector(
-      String title, Function()? onTap, IconData? icon) {
+  GestureDetector iconGestureDetector(String title, Function()? onTap,
+      IconData? icon) {
     return GestureDetector(
       onTap: onTap,
       child: Container(

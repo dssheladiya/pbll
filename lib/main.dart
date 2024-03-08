@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:pbl/LoginDemo/Demo.dart';
 import 'package:pbl/View/HomeScreen/BottomBar/home_screen.dart';
+import 'package:pbl/View/HomeScreen/intro.dart';
+import 'package:pbl/View/HomeScreen/kyc.dart';
+import 'package:pbl/View/HomeScreen/terms_and_conditions.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,7 +38,7 @@ class MyApp extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: HomeScreen(),
+          home: KycScreen(),
         );
       },
     );

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:pbl/Model/Constant/color_helper.dart';
 import 'package:pbl/Model/Constant/text_style.dart';
 import 'package:pbl/Model/Widgets/common_button.dart';
-import 'package:pbl/View/HomeScreen/BottomBar/home_screen.dart';
+import 'package:pbl/View/HomeScreen/intro.dart';
 import 'dart:async';
 import 'dart:developer';
 
@@ -90,7 +90,7 @@ class _OTPScreenState extends State<OTPScreen> {
               SizedBox(height: 10.h),
               Text(
                 "Enter the 6 digit varification code",
-                style: FonTextStyle.fieldTextStyle(),
+                style: FonTextStyle.field14300TextStyle(),
               ),
               SizedBox(height: 10.h),
               Pinput(
@@ -126,7 +126,7 @@ class _OTPScreenState extends State<OTPScreen> {
                         await auth.signInWithCredential(credential);
                     print('${userCredential.user!.phoneNumber}');
                     print('${userCredential.user!.uid}');
-                    Get.to(HomeScreen());
+                    Get.to(IntroScreen());
                   } on FirebaseException catch (e) {
                     print('${e.code}');
                     ScaffoldMessenger.of(context).showSnackBar(

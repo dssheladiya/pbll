@@ -11,6 +11,7 @@ import 'package:pbl/Model/Widgets/common_button.dart';
 import 'package:pbl/Model/Widgets/common_textfomfield.dart';
 import 'package:pbl/View/AuthScreen/signup.dart';
 import 'package:pbl/View/HomeScreen/BottomBar/home_screen.dart';
+import 'package:pbl/View/HomeScreen/intro.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -117,40 +118,40 @@ class _LoginScreenState extends State<LoginScreen> {
                   loading
                       ? const Center(child: CircularProgressIndicator())
                       : commonButton(
-                    "Login",
-                    ColorHelper.kBlack12,
-                        () async {
-                      if (_formKey.currentState!.validate()) {
-                        setState(() {
-                          loading = true;
-                        });
-                        try {
-                          UserCredential credential =
-                          await auth.signInWithEmailAndPassword(
-                              email: loginController.email.text,
-                              password: loginController.pass.text);
+                          "Login",
+                          ColorHelper.kBlack12,
+                          () async {
+                            if (_formKey.currentState!.validate()) {
+                              setState(() {
+                                loading = true;
+                              });
+                              try {
+                                UserCredential credential =
+                                    await auth.signInWithEmailAndPassword(
+                                        email: loginController.email.text,
+                                        password: loginController.pass.text);
 
-                          log("++-*****-++${credential.user!.email}");
-                          log("++-+++++-++${credential.user!.uid}");
+                                log("++-*****-++${credential.user!.email}");
+                                log("++-+++++-++${credential.user!.uid}");
 
-                          await box.write(
-                              "userid", "${credential.user!.uid}");
-                          setState(() {
-                            loading = false;
-                          });
-                          Get.to(const HomeScreen());
-                          //Get.to( HomeScreen(userid: credential.user!.uid));
-                        } on FirebaseAuthException catch (e) {
-                          log("=========${e.code}");
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text("${e.message}")));
-                          setState(() {
-                            loading = false;
-                          });
-                        }
-                      }
-                    },
-                  ),
+                                await box.write(
+                                    "userid", "${credential.user!.uid}");
+                                setState(() {
+                                  loading = false;
+                                });
+                                Get.to(const IntroScreen());
+                                //Get.to( HomeScreen(userid: credential.user!.uid));
+                              } on FirebaseAuthException catch (e) {
+                                log("=========${e.code}");
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text("${e.message}")));
+                                setState(() {
+                                  loading = false;
+                                });
+                              }
+                            }
+                          },
+                        ),
 
                   SizedBox(height: 20.h),
                   Row(

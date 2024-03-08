@@ -11,7 +11,7 @@ class FonTextStyle {
         fontStyle: FontStyle.italic);
   }
 
-  static TextStyle fieldTextStyle() {
+  static TextStyle field14300TextStyle() {
     return TextStyle(
         color: ColorHelper.kBlack,
         fontSize: 14.sp,

@@ -5,7 +5,9 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:pbl/Controller/singup_controller.dart';
 import 'package:pbl/Model/Constant/text_style.dart';
+import 'package:pbl/Model/Widgets/common_button.dart';
 import 'package:pbl/View/HomeScreen/BottomBar/business_bar.dart';
+import 'package:pbl/View/HomeScreen/BottomBar/profile_bar.dart';
 
 class HomeBar extends StatefulWidget {
   const HomeBar({super.key});
@@ -41,38 +43,45 @@ class _HomeBarState extends State<HomeBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10.h),
-      child: Column(
-        //crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: 10.h),
-          SizedBox(height: 20.h),
-          Container(
-            height: 200.h,
-            width: double.infinity,
-            decoration: BoxDecoration(
-                color: ColorHelper.kBlack12,
-                //  image: DecorationImage(image: AssetImage("")),
-                borderRadius: BorderRadius.all(Radius.circular(6.r))),
-            child: Center(
-                child: Text("Add To Business Cat",
-                    style: FonTextStyle.black20TextStyle())),
-          ),
-          SizedBox(height: 20.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15.h),
+          child: Column(
             children: [
-              iconGestureDetector("Business", () {
-                Get.to(BusinessBar());
+              SizedBox(height: 20.h),
+              Text("Home", style: FonTextStyle.black20TextStyle()),
+              const Divider(),
+              SizedBox(height: 20.h),
+              Container(
+                height: 200.h,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: ColorHelper.kBlack12,
+                    //  image: DecorationImage(image: AssetImage("")),
+                    borderRadius: BorderRadius.all(Radius.circular(6.r))),
+
+              ),
+              SizedBox(height: 20.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  iconGestureDetector("Business", () {
+                    //  Get.to(const BusinessBar());
+                  }),
+                  SizedBox(width: 10.w),
+                  iconGestureDetector("Club", () {}),
+                  SizedBox(width: 10.w),
+                  iconGestureDetector("Groups", () {}),
+                ],
+              ),
+              SizedBox(height: 20.h),
+              commonButton("Submit", ColorHelper.kBlack12, () {
+                Get.to(const ProfileBar());
               }),
-              SizedBox(width: 10.w),
-              iconGestureDetector("Club", () {}),
-              SizedBox(width: 10.w),
-              iconGestureDetector("Groups", () {}),
             ],
           ),
-        ],
+        ),
       ),
     );
   }
@@ -82,7 +91,7 @@ class _HomeBarState extends State<HomeBar> {
       onTap: onTap,
       child: Container(
         height: 40.h,
-        width: 105.w,
+        width: 100.w,
         decoration: BoxDecoration(
             color: ColorHelper.kBlueGrey,
             borderRadius: BorderRadius.all(Radius.circular(6.r))),
